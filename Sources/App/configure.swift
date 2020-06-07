@@ -1,3 +1,5 @@
+import Fluent
+import FluentSQLite
 import Vapor
 
 /// Called before your application initializes.
@@ -8,10 +10,25 @@ public func configure(
     _ env: inout Environment,
     _ services: inout Services
 ) throws {
-    // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
+    
+    let serverConfig = NIOServerConfig.default(hostname: "0.0.0.0", port: 9090)
+    services.register(serverConfig)
 
-    // Configure the rest of your application here
+    let directoryConfig = DirectoryConfig.detect()
+    services.register(directoryConfig)
+    
+    try services.register(FluentSQLiteProvider())
+    
+    var databaseConfig = DatabasesConfig()
+    let db = try SQLiteDatabase(storage: .file(path: "\(directoryConfig.workDir)covid19-counter.db"))
+    databaseConfig.add(database: db, as: .sqlite)
+    services.register(databaseConfig)
+    
+    var migrationConfig = MigrationConfig()
+    migrationConfig.add(model: Country.self, database: DatabaseIdentifier<Country.Database>.sqlite)
+    migrationConfig.add(model: Infection.self, database: DatabaseIdentifier<Infection.Database>.sqlite)
+    services.register(migrationConfig)
 }
