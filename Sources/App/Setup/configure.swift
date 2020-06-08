@@ -7,7 +7,6 @@ public func configure(
     _ env: inout Environment,
     _ services: inout Services
 ) throws {
-    
     Environment.dotenv()
     
     services.register { container -> NIOServerConfig in
@@ -23,12 +22,11 @@ public func configure(
         return router
     }
     
-    try services.register(FluentSQLiteProvider())
-    
-    /// Register middlewares
     var middlewaresConfig = MiddlewareConfig()
     try middlewares(config: &middlewaresConfig)
     services.register(middlewaresConfig)
+    
+    try services.register(FluentSQLiteProvider())
     
     var databasesConfig = DatabasesConfig()
     try databases(config: &databasesConfig)

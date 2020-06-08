@@ -29,7 +29,3 @@ extension SQLiteCountryRepository {
         return .init()
     }
 }
-
-extension Database {
-    public typealias ConnectionPool = DatabaseConnectionPool<ConfiguredDatabase<Self>>
-}

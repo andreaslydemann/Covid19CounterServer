@@ -27,6 +27,8 @@
 		8E4209DA248E6579002F0A79 /* CreateCountryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209D9248E6579002F0A79 /* CreateCountryRequest.swift */; };
 		8E4209DC248E65B8002F0A79 /* CountryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209DB248E65B8002F0A79 /* CountryResponse.swift */; };
 		8E4209DE248E6A3D002F0A79 /* DeleteCountryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209DD248E6A3D002F0A79 /* DeleteCountryRequest.swift */; };
+		8E4209E0248E6D49002F0A79 /* InfectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209DF248E6D49002F0A79 /* InfectionRepository.swift */; };
+		8E4209E2248E6E99002F0A79 /* InfectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209E1248E6E99002F0A79 /* InfectionResponse.swift */; };
 		OBJ_1089 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AppTests.swift */; };
 		OBJ_1091 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Covid19CounterServer::App::Product" /* App.framework */; };
 		OBJ_1092 /* ServiceExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "VaporExt::ServiceExt::Product" /* ServiceExt.framework */; };
@@ -5221,6 +5223,8 @@
 		8E4209D9248E6579002F0A79 /* CreateCountryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCountryRequest.swift; sourceTree = "<group>"; };
 		8E4209DB248E65B8002F0A79 /* CountryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResponse.swift; sourceTree = "<group>"; };
 		8E4209DD248E6A3D002F0A79 /* DeleteCountryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCountryRequest.swift; sourceTree = "<group>"; };
+		8E4209DF248E6D49002F0A79 /* InfectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfectionRepository.swift; sourceTree = "<group>"; };
+		8E4209E1248E6E99002F0A79 /* InfectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfectionResponse.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6868,6 +6872,7 @@
 			isa = PBXGroup;
 			children = (
 				8E4209D2248E5F76002F0A79 /* CountryRepository.swift */,
+				8E4209DF248E6D49002F0A79 /* InfectionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -6894,6 +6899,7 @@
 			isa = PBXGroup;
 			children = (
 				8E4209DB248E65B8002F0A79 /* CountryResponse.swift */,
+				8E4209E1248E6E99002F0A79 /* InfectionResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -12098,6 +12104,8 @@
 				OBJ_945 /* app.swift in Sources */,
 				OBJ_946 /* boot.swift in Sources */,
 				OBJ_947 /* configure.swift in Sources */,
+				8E4209E0248E6D49002F0A79 /* InfectionRepository.swift in Sources */,
+				8E4209E2248E6E99002F0A79 /* InfectionResponse.swift in Sources */,
 				OBJ_948 /* databases.swift in Sources */,
 				8E4209D5248E63CA002F0A79 /* repositories.swift in Sources */,
 				OBJ_949 /* middlewares.swift in Sources */,

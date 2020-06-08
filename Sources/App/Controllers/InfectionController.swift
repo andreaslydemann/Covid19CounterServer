@@ -1,12 +1,19 @@
 import Vapor
-import FluentSQLite
 
-struct InfectionController {
-    func index(_ req: Request) throws -> Future<Infection> {
-        let countryCode = try req.parameters.next(Int.self)
+struct InfectionController: RouteCollection {
+    func boot(router: Router) throws {
+        let infectionRouter = router.grouped("infections")
         
-        return Infection.query(on: req).filter(\.countryCode == countryCode).first().map(to: Infection.self) { infection in
-            guard let infection = infection else {
+        infectionRouter.get("", use: getInfectionsOfCountry)
+    }
+}
+
+private extension InfectionController {
+    func getInfectionsOfCountry(_ req: Request) throws -> Future<InfectionResponse> {
+        let repository = try req.make(InfectionRepository.self)
+        let countryCode = try req.parameters.next(Int.self)
+        return repository.find(by: countryCode, on: req).map { infection in
+            guard let infection = InfectionResponse(infection: infection, countryCode: countryCode) else {
                 throw Abort(.notFound)
             }
             

@@ -1,25 +1,18 @@
-//
-//  Infection.swift
-//  App
-//
-//  Created by Andreas Lüdemann on 07/06/2020.
-//
-
-import Foundation
 import Vapor
 import FluentSQLite
 
-struct Infection: SQLiteModel {
+struct Infection {
     var id: Int?
     var count: Int
     var countryCode: Int
+    
+    init(id: Int? = nil, count: Int, countryCode: Int) {
+        self.id = id
+        self.count = count
+        self.countryCode = countryCode
+    }
 }
 
-/// Allows `Country` to be used as a dynamic migration.
+extension Infection: SQLiteModel { }
 extension Infection: Migration { }
-
-/// Allows `Country` to be encoded to and decoded from HTTP messages.
-extension Infection: Content { }
-
-/// Allows `Country` to be used as a dynamic parameter in route definitions.
 extension Infection: Parameter { }

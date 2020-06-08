@@ -1,7 +1,6 @@
 import Vapor
 
 struct CountryResponse: Content {
-    
     let id: Int
     let name: String
     
