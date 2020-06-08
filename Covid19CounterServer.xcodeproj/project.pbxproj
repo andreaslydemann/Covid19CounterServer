@@ -5939,10 +5939,8 @@
 		OBJ_942 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
 		OBJ_943 /* Public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Public; sourceTree = SOURCE_ROOT; };
 		OBJ_944 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		OBJ_945 /* covid19-counter.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covid19-counter.db"; sourceTree = "<group>"; };
 		OBJ_946 /* cloud.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = cloud.yml; sourceTree = "<group>"; };
 		OBJ_947 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		OBJ_948 /* circle.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = circle.yml; sourceTree = "<group>"; };
 		OBJ_95 /* SQLiteQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteQuery.swift; sourceTree = "<group>"; };
 		OBJ_96 /* SQLiteQueryExpressionRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteQueryExpressionRepresentable.swift; sourceTree = "<group>"; };
 		OBJ_97 /* SQLiteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteTable.swift; sourceTree = "<group>"; };
@@ -7948,10 +7946,8 @@
 				OBJ_942 /* Resources */,
 				OBJ_943 /* Public */,
 				OBJ_944 /* LICENSE */,
-				OBJ_945 /* covid19-counter.db */,
 				OBJ_946 /* cloud.yml */,
 				OBJ_947 /* README.md */,
-				OBJ_948 /* circle.yml */,
 			);
 			name = "";
 			sourceTree = "<group>";
