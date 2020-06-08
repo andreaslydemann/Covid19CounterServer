@@ -29,6 +29,7 @@
 		8E4209DE248E6A3D002F0A79 /* DeleteCountryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209DD248E6A3D002F0A79 /* DeleteCountryRequest.swift */; };
 		8E4209E0248E6D49002F0A79 /* InfectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209DF248E6D49002F0A79 /* InfectionRepository.swift */; };
 		8E4209E2248E6E99002F0A79 /* InfectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209E1248E6E99002F0A79 /* InfectionResponse.swift */; };
+		8E4209E4248E7F82002F0A79 /* ChangeInfectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4209E3248E7F82002F0A79 /* ChangeInfectionRequest.swift */; };
 		OBJ_1089 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AppTests.swift */; };
 		OBJ_1091 /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Covid19CounterServer::App::Product" /* App.framework */; };
 		OBJ_1092 /* ServiceExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "VaporExt::ServiceExt::Product" /* ServiceExt.framework */; };
@@ -5225,6 +5226,7 @@
 		8E4209DD248E6A3D002F0A79 /* DeleteCountryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCountryRequest.swift; sourceTree = "<group>"; };
 		8E4209DF248E6D49002F0A79 /* InfectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfectionRepository.swift; sourceTree = "<group>"; };
 		8E4209E1248E6E99002F0A79 /* InfectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfectionResponse.swift; sourceTree = "<group>"; };
+		8E4209E3248E7F82002F0A79 /* ChangeInfectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfectionRequest.swift; sourceTree = "<group>"; };
 		"Console::Command::Product" /* Command.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Command.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Console::Product" /* Console.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Console.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Console::Logging::Product" /* Logging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6891,6 +6893,7 @@
 			children = (
 				8E4209D9248E6579002F0A79 /* CreateCountryRequest.swift */,
 				8E4209DD248E6A3D002F0A79 /* DeleteCountryRequest.swift */,
+				8E4209E3248E7F82002F0A79 /* ChangeInfectionRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -12095,6 +12098,7 @@
 			files = (
 				8E420773248E5C26002F0A79 /* migrate.swift in Sources */,
 				OBJ_941 /* CountryController.swift in Sources */,
+				8E4209E4248E7F82002F0A79 /* ChangeInfectionRequest.swift in Sources */,
 				8E4209DA248E6579002F0A79 /* CreateCountryRequest.swift in Sources */,
 				8E4209DC248E65B8002F0A79 /* CountryResponse.swift in Sources */,
 				OBJ_942 /* InfectionController.swift in Sources */,

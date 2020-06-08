@@ -3,6 +3,8 @@ import FluentSQLite
 
 protocol InfectionRepository: ServiceType {
     func find(by countryCode: Int, on connectable: DatabaseConnectable) -> Future<Infection>
+    func save(infection: Infection, on connectable: DatabaseConnectable) -> Future<Infection>
+    func delete(infection: Infection, on connectable: DatabaseConnectable) -> Future<Void>
 }
 
 final class SQLiteInfectionRepository: InfectionRepository {
@@ -17,6 +19,14 @@ final class SQLiteInfectionRepository: InfectionRepository {
                 
                 return infection
         }
+    }
+    
+    func save(infection: Infection, on connectable: DatabaseConnectable) -> Future<Infection> {
+        return infection.save(on: connectable)
+    }
+    
+    func delete(infection: Infection, on connectable: DatabaseConnectable) -> Future<Void> {
+        return infection.delete(on: connectable)
     }
 }
 
