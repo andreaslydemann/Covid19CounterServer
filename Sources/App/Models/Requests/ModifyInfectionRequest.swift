@@ -1,5 +1,5 @@
 import Vapor
 
-struct ChangeInfectionRequest: Content {
+struct ModifyInfectionRequest: Content {
     var countryCode: Int
 }

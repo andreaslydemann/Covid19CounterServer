@@ -1237,7 +1237,7 @@
 		OBJ_955 /* InfectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* InfectionController.swift */; };
 		OBJ_956 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Country.swift */; };
 		OBJ_957 /* Infection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Infection.swift */; };
-		OBJ_958 /* ChangeInfectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* ChangeInfectionRequest.swift */; };
+		OBJ_958 /* ModifyInfectionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* ModifyInfectionRequest.swift */; };
 		OBJ_959 /* CreateCountryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* CreateCountryRequest.swift */; };
 		OBJ_961 /* CountryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CountryResponse.swift */; };
 		OBJ_962 /* InfectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* InfectionResponse.swift */; };
@@ -5297,7 +5297,7 @@
 		OBJ_165 /* Exports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exports.swift; sourceTree = "<group>"; };
 		OBJ_166 /* FluentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluentError.swift; sourceTree = "<group>"; };
 		OBJ_169 /* Exports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exports.swift; sourceTree = "<group>"; };
-		OBJ_17 /* ChangeInfectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInfectionRequest.swift; sourceTree = "<group>"; };
+		OBJ_17 /* ModifyInfectionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyInfectionRequest.swift; sourceTree = "<group>"; };
 		OBJ_170 /* FluentSQLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluentSQLQuery.swift; sourceTree = "<group>"; };
 		OBJ_171 /* FluentSQLSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluentSQLSchema.swift; sourceTree = "<group>"; };
 		OBJ_172 /* QueryBuilder+GroupBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryBuilder+GroupBy.swift"; sourceTree = "<group>"; };
@@ -7038,7 +7038,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_18 /* CreateCountryRequest.swift */,
-				OBJ_17 /* ChangeInfectionRequest.swift */,
+				OBJ_17 /* ModifyInfectionRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -12097,7 +12097,7 @@
 				OBJ_955 /* InfectionController.swift in Sources */,
 				OBJ_956 /* Country.swift in Sources */,
 				OBJ_957 /* Infection.swift in Sources */,
-				OBJ_958 /* ChangeInfectionRequest.swift in Sources */,
+				OBJ_958 /* ModifyInfectionRequest.swift in Sources */,
 				OBJ_959 /* CreateCountryRequest.swift in Sources */,
 				OBJ_961 /* CountryResponse.swift in Sources */,
 				OBJ_962 /* InfectionResponse.swift in Sources */,

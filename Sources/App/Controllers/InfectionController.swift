@@ -5,8 +5,8 @@ struct InfectionController: RouteCollection {
         let infectionRouter = router.grouped("infections")
         
         infectionRouter.get("", Int.parameter, use: getInfectionsOfCountry)
-        infectionRouter.post(ChangeInfectionRequest.self, at: "increment", use: incrementInfections)
-        infectionRouter.post(ChangeInfectionRequest.self, at: "decrement", use: decrementInfections)
+        infectionRouter.post(ModifyInfectionRequest.self, at: "increment", use: incrementInfections)
+        infectionRouter.post(ModifyInfectionRequest.self, at: "decrement", use: decrementInfections)
     }
 }
 
@@ -23,11 +23,11 @@ private extension InfectionController {
         }
     }
     
-    func incrementInfections(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
+    func incrementInfections(_ req: Request, changeInfectionRequest: ModifyInfectionRequest) throws -> Future<HTTPStatus> {
         return try updateInfections(req, countryCode: changeInfectionRequest.countryCode, modification: .increment)
     }
     
-    func decrementInfections(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
+    func decrementInfections(_ req: Request, changeInfectionRequest: ModifyInfectionRequest) throws -> Future<HTTPStatus> {
         return try updateInfections(req, countryCode: changeInfectionRequest.countryCode, modification: .decrement)
     }
     
