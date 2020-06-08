@@ -27,7 +27,7 @@ final class SQLiteCountryRepository: CountryRepository {
     }
     
     func save(country: Country, on connectable: DatabaseConnectable) -> Future<Country> {
-        return country.save(on: connectable)
+        return country.create(on: connectable)
     }
     
     func delete(country: Country, on connectable: DatabaseConnectable) -> Future<Void> {

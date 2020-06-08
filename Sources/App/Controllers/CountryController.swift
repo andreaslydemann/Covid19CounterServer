@@ -6,7 +6,7 @@ struct CountryController: RouteCollection {
         
         countriesRouter.get("", use: getCountries)
         countriesRouter.post(CreateCountryRequest.self, at: "", use: createCountry)
-        countriesRouter.post(DeleteCountryRequest.self, at: "", use: deleteCountry)
+        countriesRouter.delete("", Int.parameter, use: deleteCountry)
     }
 }
 
@@ -19,29 +19,31 @@ private extension CountryController {
     }
     
     func createCountry(_ req: Request, createRequest: CreateCountryRequest) throws -> Future<HTTPStatus> {
-        let country = Country(id: createRequest.countryCode, name: createRequest.name)
         let countryRepository = try req.make(CountryRepository.self)
         let infectionRepository = try req.make(InfectionRepository.self)
+
+        let country = Country(id: createRequest.countryCode, name: createRequest.name)
+        let saveCountry = countryRepository.save(country: country, on: req)
         
-        return countryRepository.save(country: country, on: req).map { newCountry -> Future<Infection> in
-            guard let countryCode = newCountry.id else {
-                throw Abort(.notFound)
-            }
-            
-            return infectionRepository.save(infection: Infection(count: 0, countryCode: countryCode), on: req)
-        }.transform(to: .created)
+        let infection = Infection(count: 0, countryCode: createRequest.countryCode)
+        let saveInfection = infectionRepository.save(infection: infection, on: req)
+        
+        return saveCountry.and(saveInfection).transform(to: .created)
     }
     
-    func deleteCountry(_ req: Request, deleteRequest: DeleteCountryRequest) throws -> Future<HTTPStatus> {
+    func deleteCountry(_ req: Request) throws -> Future<HTTPStatus> {
         let countryRepository = try req.make(CountryRepository.self)
         let infectionRepository = try req.make(InfectionRepository.self)
+        let countryCode = try req.parameters.next(Int.self)
         
-        return countryRepository.find(by: deleteRequest.countryCode, on: req).map { (country: Country) -> Future<Void> in
-            return countryRepository.delete(country: country, on: req).map { _ in
-                _ = infectionRepository.find(by: deleteRequest.countryCode, on: req).map { infection in
-                    infectionRepository.delete(infection: infection, on: req)
-                }
-            }
+        let findCountry = countryRepository.find(by: countryCode, on: req)
+        let findInfection = infectionRepository.find(by: countryCode, on: req)
+
+        return findCountry.and(findInfection).map {(country, infection) -> Future<(Void, Void)> in
+            let deleteCountry = countryRepository.delete(country: country, on: req)
+            let deleteInfection = infectionRepository.delete(infection: infection, on: req)
+            
+            return deleteCountry.and(deleteInfection)
         }.transform(to: .ok)
     }
 }

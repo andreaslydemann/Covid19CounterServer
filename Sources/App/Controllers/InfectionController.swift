@@ -4,9 +4,9 @@ struct InfectionController: RouteCollection {
     func boot(router: Router) throws {
         let infectionRouter = router.grouped("infections")
         
-        infectionRouter.get("", use: getInfectionsOfCountry)
-        infectionRouter.post(ChangeInfectionRequest.self, at: "increment", use: incrementInfectionCount)
-        infectionRouter.post(ChangeInfectionRequest.self, at: "decrement", use: decrementInfectionCount)
+        infectionRouter.get("", Int.parameter, use: getInfectionsOfCountry)
+        infectionRouter.post(ChangeInfectionRequest.self, at: "increment", use: incrementInfections)
+        infectionRouter.post(ChangeInfectionRequest.self, at: "decrement", use: decrementInfections)
     }
 }
 
@@ -23,19 +23,26 @@ private extension InfectionController {
         }
     }
     
-    func incrementInfectionCount(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
+    func incrementInfections(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
+        return try updateInfections(req, countryCode: changeInfectionRequest.countryCode, modification: .increment)
+    }
+    
+    func decrementInfections(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
+        return try updateInfections(req, countryCode: changeInfectionRequest.countryCode, modification: .decrement)
+    }
+    
+    // MARK: Private Helpers
+    private func updateInfections(_ req: Request, countryCode: Int, modification: Modification) throws -> Future<HTTPStatus> {
         let repository = try req.make(InfectionRepository.self)
-        return repository.find(by: changeInfectionRequest.countryCode, on: req).map { infection -> Future<Infection> in
-            let updatedInfection = Infection(id: infection.id, count: infection.count + 1, countryCode: infection.countryCode)
+        return repository.find(by: countryCode, on: req).map { infection -> Future<Infection> in
+            let count = modification == .increment ? infection.count + 1 : infection.count - 1
+            let updatedInfection = Infection(id: infection.id, count: count, countryCode: infection.countryCode)
             return repository.save(infection: updatedInfection, on: req)
         }.transform(to: .ok)
     }
     
-    func decrementInfectionCount(_ req: Request, changeInfectionRequest: ChangeInfectionRequest) throws -> Future<HTTPStatus> {
-        let repository = try req.make(InfectionRepository.self)
-        return repository.find(by: changeInfectionRequest.countryCode, on: req).map { infection -> Future<Infection> in
-            let updatedInfection = Infection(id: infection.id, count: infection.count - 1, countryCode: infection.countryCode)
-            return repository.save(infection: updatedInfection, on: req)
-        }.transform(to: .ok)
+    private enum Modification {
+        case increment
+        case decrement
     }
 }
